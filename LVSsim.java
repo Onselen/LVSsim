@@ -32,12 +32,14 @@ public class LVSsim {
                 launcher1.launchMissile();
             }
 
-            // Wait for the second to pass, before scanning another time (right now neglecting compute time)
-            try{Thread.sleep(durationPerScan);} catch (Exception e) {}
-
             // Print empty line and increment i
             System.out.println();
             i++;
+
+            // Wait for the second to pass, before scanning another time (right now neglecting compute time)
+            if (i<noScans) {
+                try{Thread.sleep(durationPerScan);} catch (Exception e) {}
+            }
         }
     }
 }
