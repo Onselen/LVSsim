@@ -18,6 +18,7 @@ public class LVSsim {
         // Instantiate components of simulation
         Radar radar1 = new Radar(radarDataFilename);
         IFF iff1 = new IFF();
+        Launcher launcher1 = new Launcher();
 
         // Simulation will start
         int i = 0;
