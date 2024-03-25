@@ -27,6 +27,7 @@ public class LVSsim {
 
             // Scan for threats
             String radarData = radar1.scanForThreats();
+            System.out.println("System radar has detected an object");
 
             // Identify friend or foe
             iff1.identify(radarData);
@@ -34,9 +35,17 @@ public class LVSsim {
             // Launch missile if foe is identified
             boolean kill;
             if (iff1.foe) {
+                System.out.println("System IFF has identified the object as foe");
                 kill = launcher1.launchMissile();
+                if (kill) {
+                    System.out.println("System launcher has fired a missile and hit its target");
+                } else {
+                    System.out.println("System launcher has fired a missile and missed its target");
                 }
+            } else {
+                System.out.println("System IFF has identified the object as friend");
             }
+            System.out.println();
             i++;
         }
     }
