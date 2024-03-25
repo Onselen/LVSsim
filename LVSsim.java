@@ -25,8 +25,6 @@ public class LVSsim {
         // Simulation will start
         int i = 0;
         while (i < noScans) {
-            helpTime = 0;
-
             // Scan for threats
             String radarData = radar1.scanForThreats();
 
