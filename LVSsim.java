@@ -3,13 +3,9 @@ import java.lang.Thread;
 public class LVSsim {
     public static void main(String[] args){
 
-        // This program will simulate three components:
-        // - Radar
-        // - Identification Friend or Foe (IFF
-        // - Missile launcher
-        //
+        // This program will simulate a Luchtverdedigingssysteem (LVS)
 
-        // Parameter settings
+        // Parameters
         int noScans = 20;                               // Amount of scans the simulation takes
         int scanRate = 1;                               // Rate [scan/second] at which the simulation will run
         long durationPerScan = 1000/scanRate;           // [miliseconds]
@@ -22,7 +18,7 @@ public class LVSsim {
         IFF iff1 = new IFF();
         Launcher launcher1 = new Launcher();
 
-        // Simulation will start
+        // Simulation start
         int i = 0;
         while (i < noScans) {
             // Scan for threats
