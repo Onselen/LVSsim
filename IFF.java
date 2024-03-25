@@ -23,9 +23,9 @@ public class IFF {
         foe = unevenCount > evenCount;
         friend = !foe;
         if (foe) {
-            System.out.println("System IFF has identified the object as foe");
+            System.out.println("System IFF has identified the object as FOE");
         } else {
-            System.out.println("System IFF has identified the object as friend");
+            System.out.println("System IFF has identified the object as FRIEND");
         }
     }
 

@@ -13,9 +13,9 @@ public class Launcher {
         this.launches.add(kill);
 
         if (kill) {
-            System.out.println("System launcher has fired a missile and hit its target");
+            System.out.println("System launcher has fired a missile: HIT");
         } else {
-            System.out.println("System launcher has fired a missile and missed its target");
+            System.out.println("System launcher has fired a missile: MISS");
         }
 
         return kill;
