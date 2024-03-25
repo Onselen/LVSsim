@@ -1,5 +1,5 @@
 
-public class Main {
+public class LVSsim {
     public static void main(String[] args){
 
         // This program will simulate three components:
