@@ -31,8 +31,12 @@ public class LVSsim {
             // Identify friend or foe
             iff1.identify(radarData);
 
-            // Launch missile if necessary
-
+            // Launch missile if foe is identified
+            boolean kill;
+            if (iff1.foe) {
+                kill = launcher1.launchMissile();
+                }
+            }
             i++;
         }
     }
