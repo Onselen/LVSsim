@@ -1,3 +1,4 @@
+import java.lang.Thread;
 
 public class LVSsim {
     public static void main(String[] args){
@@ -7,13 +8,14 @@ public class LVSsim {
         // - Identification Friend or Foe (IFF
         // - Missile launcher
         //
-        // One unit can consist of one or more of these components
-        // 
 
         // Parameter settings
-        int noScans = 20;                             // Amount of scans the simulation takes
-        long helpTime = 0;
-        String radarDataFilename = "radar_data.csv";  // Filename of file that contains the radardata
+        int noScans = 20;                               // Amount of scans the simulation takes
+        int scanRate = 1;                               // Rate [scan/second] at which the simulation will run
+        long durationPerScan = 1000/scanRate;           // [miliseconds]
+        String radarDataFilename = "radar_data.csv";    // Filename of file that contains the radardata
+
+        // Option handling (not yet implemented)
 
         // Instantiate components of simulation
         Radar radar1 = new Radar(radarDataFilename);
@@ -35,6 +37,11 @@ public class LVSsim {
             if (iff1.foe) {
                 launcher1.launchMissile();
             }
+
+            // Wait for the second to pass, before scanning another time (right now neglecting compute time)
+            try{Thread.sleep(durationPerScan);} catch (Exception e) {}
+
+            // Print empty line and increment i
             System.out.println();
             i++;
         }
