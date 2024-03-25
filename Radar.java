@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Radar {
     File radarDataFile;
     Scanner fileScanner;
+    String lastScanResult;
 
     public Radar(String passedRadarDataFilename) {
         radarDataFile = new File(passedRadarDataFilename);
@@ -17,6 +18,7 @@ public class Radar {
 
     String scanForThreats() {
         System.out.println("System radar has detected an object");
-        return fileScanner.nextLine();
+        this.lastScanResult = fileScanner.nextLine();
+        return this.lastScanResult;
     }
 }

@@ -26,10 +26,10 @@ public class LVSsim {
         int i = 0;
         while (i < noScans) {
             // Scan for threats
-            String radarData = radar1.scanForThreats();
+            radar1.scanForThreats();
 
             // Identify friend or foe
-            iff1.identify(radarData);
+            iff1.identify(radar1.lastScanResult);
 
             // Launch missile if foe is identified
             if (iff1.foe) {
