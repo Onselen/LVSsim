@@ -16,6 +16,7 @@ public class Radar {
     }
 
     String scanForThreats() {
+        System.out.println("System radar has detected an object");
         return fileScanner.nextLine();
     }
 }

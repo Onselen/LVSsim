@@ -11,6 +11,13 @@ public class Launcher {
     boolean launchMissile(){
         boolean kill = (random.nextDouble() < probabilityOfKill);
         this.launches.add(kill);
+
+        if (kill) {
+            System.out.println("System launcher has fired a missile and hit its target");
+        } else {
+            System.out.println("System launcher has fired a missile and missed its target");
+        }
+
         return kill;
     }
 
