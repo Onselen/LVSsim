@@ -6,19 +6,17 @@ public class LVSsim {
 
         // This program will simulate one unit of a Luchtverdedigingssysteem (LVS)
 
-        // Parameters
-        int noScans = 20;                               // Amount of scans the simulation takes
-        int scanRate = 1;                               // Rate [scan/second] at which the simulation will run
-        long durationPerScan = 1000/scanRate;           // [miliseconds]
-        String radarDataFilename = "radar_data.csv";    // Filename of file that contains the radardata
 
-        // Option handling (not yet implemented)
-        if (args.length < 3) {
-            System.err.println("Please pass 3 arguments: [number or radars] [number or IFFs] [number or launchers]");
+        // Parameters & argument handling (not yet implemented)
+        long durationPerScan = 1000;                    // [miliseconds]
+        if (args.length < 5) {
+            System.err.println("Please pass 5 arguments: [number or radars] [number or IFFs] [number or launchers] [number of scans] [radar data file]");
         }
         int noRadars = Integer.valueOf(args[0]);
         int noIFFs = Integer.valueOf(args[1]);
         int noLaunchers = Integer.valueOf(args[2]);
+        int noScans = Integer.valueOf(args[3]);         // Amount of scans the simulation takes
+        String radarDataFilename = args[4];    // Filename of file that contains the radardata
 
         // Instantiate components of simulation
         ArrayList<Radar> radars = new ArrayList<Radar>();
