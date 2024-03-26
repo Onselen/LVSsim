@@ -4,11 +4,14 @@ public class IFF {
     */
 
     // Attributes
+    public String name;
     public boolean friend;
     public boolean foe;
 
     // Constructor
-    public IFF() {}
+    public IFF(String name) {
+        this.name = name;
+    }
 
     // Methods
     public void identify(String radarData){
@@ -33,9 +36,9 @@ public class IFF {
 
         // Print result
         if (foe) {
-            System.out.println("System IFF has identified the object as FOE");
+            System.out.println(name+" has identified the object as FOE");
         } else {
-            System.out.println("System IFF has identified the object as FRIEND");
+            System.out.println(name+" has identified the object as FRIEND");
         }
     }
 

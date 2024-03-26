@@ -7,29 +7,39 @@ public class Launcher {
     */
 
     // Attributes
+    public String name;
     double probabilityOfKill = 0.8;
+    boolean available = true;
     Random random = new Random();
     ArrayList<Boolean> launches = new ArrayList<Boolean>();
 
     // Constructor
-    public Launcher(){}
+    public Launcher(String name){
+        this.name = name;
+    }
 
     // Methods
     boolean launchMissile(){
-        // Launch missile
-        boolean kill = (random.nextDouble() < probabilityOfKill);
+        if (available) {
+            // Launch missile
+            boolean kill = (random.nextDouble() < probabilityOfKill);
 
-        // Store launch result
-        this.launches.add(kill);
+            // Store launch result
+            this.launches.add(kill);
 
-        // Print result
-        if (kill) {
-            System.out.println("System launcher has fired a missile: HIT");
+            // Print result
+            if (kill) {
+                System.out.println(name+" has fired a missile: HIT");
+            } else {
+                System.out.println(name+" has fired a missile: MISS");
+            }
+
+            available = false;
+
+            return kill;
         } else {
-            System.out.println("System launcher has fired a missile: MISS");
+            System.out.println(name+" is not available for missile launch");
+            return false;
         }
-
-        return kill;
     }
-
 }

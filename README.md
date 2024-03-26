@@ -5,12 +5,6 @@ Deze applicatie simuleert de operatie van een luchtverdedigingssysteem met de vo
 - Identification Friend or Foe (IFF)
 - Missile launcher
 
-## Simulatie uitleg
-1. De simulatie zal 1 radar, 1 IFF en 1 missile launcher maken.
-2. De radar zal scannen
-3. De IFF zal het resultaat identificeren - Friend or Foe
-4. Indien het een vijandig object betreft, zal de launcher een missile vuren die een kans van 80% heeft om het doel te raken
-5. Stap 2-4 zal worden herhaald voor alle 20 scans
 
 ## Instructie
 Voor de simulatie is het volgende nodig:
@@ -25,6 +19,15 @@ javac LVSsim.java
 
 Om het programma vervolgens te runnen, voer de volgende opdracht uit:
 ```
-java LVSsim
+java LVSsim [aantal radars] [aantal IFFs] [aantal launchers]
 ```
 
+## Simulatie uitleg
+1. De simulatie zal de radars, IFFs en missile launchers maken voor de unit.\
+Vervolgens, per tijdstap:
+    1. Elke radar scant
+    2. Elke radar zal vervolgens alle IFFs inzetten om het resultaat van de scan identificeren - Friend or Foe
+    4. Elke IFF zal alle launchers inzetten indien het een vijandig object betreft. Een missile heeft een kans van 80% heeft om het doel te raken
+    5. Stap 2-4 zal worden herhaald voor alle 20 scans
+
+Op dit moment heeft het geen toegevoegde waarde om meerdere radars of IFFs in te zetten in een unit, dus hier kun je er dus het beste maar 1 van maken. Dit voorkomt ook wildgroei aan inzet van onderdelen.
