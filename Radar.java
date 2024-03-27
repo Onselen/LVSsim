@@ -32,11 +32,9 @@ public class Radar {
         // Method for scanning threats based on the given datafile
         String result = fileScanner.nextLine();
 
-        // Store scan result
         this.lastScanResult = result;
         this.scans.add(result);
 
-        // Print result
         System.out.println(name+" has detected an object");
 
         return this.lastScanResult;

@@ -5,13 +5,12 @@ public class LVSsim {
     public static void main(String[] args){
 
         // This program will simulate one unit of a Luchtverdedigingssysteem (LVS)
-
-
-        // Parameters & argument handling (not yet implemented)
-        long durationPerScan = 1000;                    // [miliseconds]
         if (args.length < 5) {
             System.err.println("Please pass 5 arguments: [number or radars] [number or IFFs] [number or launchers] [number of scans] [radar data file]");
         }
+
+        // Parameters & argument handling
+        long durationPerScan = 1000;  // [miliseconds]
         int noRadars = Integer.valueOf(args[0]);
         int noIFFs = Integer.valueOf(args[1]);
         int noLaunchers = Integer.valueOf(args[2]);
@@ -23,7 +22,7 @@ public class LVSsim {
         ArrayList<IFF> iffs = new ArrayList<IFF>();
         ArrayList<Launcher> launchers = new ArrayList<Launcher>();
 
-        // Create radars
+        // Create objects
         for (int i = 0; i < noRadars; i++) {
             radars.add(new Radar("Radar"+(i+1), radarDataFilename));
         }
@@ -37,16 +36,13 @@ public class LVSsim {
         // Simulation start
         int i = 0;
         while (i < noScans) {
-            // Scan for threats
             for (Radar radar : radars) {
                 radar.scanForThreats();
                 
-                // Identify friend or foe
                 for (IFF iff : iffs) {
                     System.out.print("\t");
                     iff.identify(radar.lastScanResult);
 
-                    // Launch missiles if foe is identified
                     if (iff.foe) {
                         for (Launcher launcher : launchers) {
                             System.out.print("\t\t");
@@ -56,7 +52,6 @@ public class LVSsim {
                 }
             }
 
-            // Print empty line and increment i
             System.out.println();
             i++;
 
